@@ -50,7 +50,11 @@ export default async function handler(req: any, res: any) {
       },
     );
 
-    if (!upstream.ok) return res.status(502).json({ error: 'upstream_error' });
+    if (!upstream.ok) {
+        const detail = await upstream.text();
+        console.error('Gemini error', upstream.status, detail);
+        return res.status(502).json({ error: 'upstream_error', status: upstream.status });
+    }
 
     const data = await upstream.json();
     const text = (data?.candidates?.[0]?.content?.parts ?? [])
