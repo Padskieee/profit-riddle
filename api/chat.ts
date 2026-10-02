@@ -1,4 +1,3 @@
-// api/chat.ts
 const SYSTEM = `Kamu adalah asisten kalkulator profit untuk pelaku UMKM Indonesia di aplikasi ProfitRiddle.
 Aturan:
 - Jawab dalam bahasa Indonesia yang sederhana, singkat (maksimal 5-6 kalimat atau poin).
@@ -37,8 +36,8 @@ export default async function handler(req: any, res: any) {
     },
   ];
 
-  try {
-    const upstream = await fetch(
+  const callGemini = (withThinking: boolean) =>
+    fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
       {
         method: 'POST',
@@ -46,15 +45,26 @@ export default async function handler(req: any, res: any) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: SYSTEM }] },
           contents,
-          generationConfig: { temperature: 0.4, maxOutputTokens: 2048 },
+          generationConfig: {
+            temperature: 0.4,
+            maxOutputTokens: 2048,
+            ...(withThinking ? { thinkingConfig: { thinkingLevel: 'minimal' } } : {}),
+          },
         }),
       },
     );
 
+  try {
+    let upstream = await callGemini(true);
+
+    if (upstream.status === 400) {
+      upstream = await callGemini(false);
+    }
+
     if (!upstream.ok) {
-        const detail = await upstream.text();
-        console.error('Gemini error', upstream.status, detail);
-        return res.status(502).json({ error: 'upstream_error', status: upstream.status });
+      const detail = await upstream.text();
+      console.error('Gemini error', upstream.status, detail);
+      return res.status(502).json({ error: 'upstream_error', status: upstream.status });
     }
 
     const data = await upstream.json();
