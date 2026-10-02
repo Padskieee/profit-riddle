@@ -55,7 +55,6 @@ export function BusinessTypeSelector({
           </p>
         </div>
 
-        {/* Search */}
         <div className="relative mb-6">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
           <input
@@ -67,7 +66,6 @@ export function BusinessTypeSelector({
           />
         </div>
 
-        {/* Grid of business types */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           {filtered.map((template) => {
             const Icon = (LucideIcons as unknown as Record<string, LucideIcon>)[template.icon] ?? LucideIcons.Store;
@@ -114,7 +112,6 @@ export function BusinessTypeSelector({
           })}
         </div>
 
-        {/* Custom business type */}
         <div className="border-t border-slate-100 pt-6 mb-8">
           <label className="block text-sm font-medium text-slate-700 mb-2">
             Atau ketik jenis usaha Anda sendiri
@@ -131,7 +128,6 @@ export function BusinessTypeSelector({
           />
         </div>
 
-        {/* Continue button */}
         <button
           onClick={handleContinue}
           disabled={!selectedKey && !customType.trim()}

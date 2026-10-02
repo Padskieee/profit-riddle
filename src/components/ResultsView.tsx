@@ -86,7 +86,6 @@ export function ResultsView({
           </p>
         </div>
 
-        {/* Hero result */}
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 text-white mb-6 shadow-xl">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center">
@@ -132,7 +131,6 @@ export function ResultsView({
             </div>
           </div>
 
-          {/* Visualization bars */}
           <div className="mt-6 space-y-3">
             <div>
               <div className="flex justify-between text-xs text-slate-400 mb-1.5">
@@ -173,7 +171,6 @@ export function ResultsView({
           </div>
         </div>
 
-        {/* Stats grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {stats.map((stat, i) => (
             <div
@@ -191,7 +188,6 @@ export function ResultsView({
           ))}
         </div>
 
-        {/* Realistic check */}
         {calc.unitsPerDay > 100 && (
           <div className="flex items-start gap-3 p-4 bg-amber-50 border border-amber-200 rounded-2xl mb-6">
             <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
@@ -214,7 +210,6 @@ export function ResultsView({
           </div>
         )}
 
-        {/* Continue */}
         <button
           onClick={onContinue}
           className="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 text-white font-semibold rounded-xl hover:bg-emerald-700 transition-all shadow-md shadow-emerald-600/20"

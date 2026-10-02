@@ -146,7 +146,6 @@ export function ScenarioView({
       content: trimmed,
       timestamp: Date.now(),
     };
-    // riwayat tanpa pesan sapaan awal
     const history = chatMessages.slice(1).map((m) => ({
       role: m.role,
       text: m.content,
@@ -225,9 +224,7 @@ export function ScenarioView({
         </div>
 
         <div className="grid lg:grid-cols-5 gap-6">
-          {/* Left: Scenarios */}
           <div className="lg:col-span-3 space-y-6">
-            {/* Scenario cards */}
             <div>
               <h2 className="text-lg font-semibold text-slate-900 mb-4 flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-emerald-600" />
@@ -266,7 +263,6 @@ export function ScenarioView({
               </div>
             </div>
 
-            {/* Custom price input */}
             <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
               <h3 className="font-semibold text-slate-900 mb-3 text-sm">
                 Coba Harga Sendiri
@@ -300,7 +296,6 @@ export function ScenarioView({
               </div>
             </div>
 
-            {/* Tips */}
             <div className="grid sm:grid-cols-2 gap-4">
               <button
                 onClick={() => setShowTips(showTips === 'margin' ? null : 'margin')}
@@ -372,7 +367,6 @@ export function ScenarioView({
               </div>
             )}
 
-            {/* Export button */}
             <div className="bg-gradient-to-br from-emerald-600 to-emerald-700 rounded-2xl p-6 text-white shadow-lg shadow-emerald-600/20">
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
@@ -400,7 +394,6 @@ export function ScenarioView({
               </div>
             </div>
 
-            {/* Restart */}
             <button
               onClick={() => window.location.reload()}
               className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors text-sm"
@@ -410,7 +403,6 @@ export function ScenarioView({
             </button>
           </div>
 
-          {/* Right: Chat */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm flex flex-col h-[600px] sticky top-6">
               {/* Chat header */}
@@ -428,7 +420,6 @@ export function ScenarioView({
                 </div>
               </div>
 
-              {/* Chat messages */}
               <div className="flex-1 overflow-y-auto p-4 space-y-3">
                 {chatMessages.map((msg, i) => (
                   <div
@@ -456,7 +447,6 @@ export function ScenarioView({
                 <div ref={chatEndRef} />
               </div>
 
-              {/* Quick questions */}
               {chatMessages.length <= 1 && (
                 <div className="px-4 pb-2 flex flex-wrap gap-1.5">
                   {quickQuestions.map((q, i) => (
@@ -472,7 +462,6 @@ export function ScenarioView({
                 </div>
               )}
 
-              {/* Chat input */}
               <div className="p-3 border-t border-slate-100">
                 <div className="flex gap-2">
                   <input

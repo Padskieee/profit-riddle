@@ -185,10 +185,6 @@ export function processChat(
   };
 }
 
-// ---------------------------------------------------------------------------
-// LLM (Gemini lewat /api/chat di Vercel)
-// ---------------------------------------------------------------------------
-
 export interface ChatTurn {
   role: 'user' | 'assistant';
   text: string;
@@ -203,7 +199,7 @@ async function askLLM(
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ message, context, history }),
-    signal: AbortSignal.timeout(15000),
+    signal: AbortSignal.timeout(30000),
   });
 
   if (!res.ok) throw new Error('LLM request failed');
@@ -230,14 +226,12 @@ export async function processChatAI(
     targetProfit,
   );
 
-  // Simulasi harga, break-even, dll. tetap dijawab aturan (angkanya akurat)
   if (!ruleResult.isFallback) return ruleResult;
 
   try {
     const text = await askLLM(message, getTemplateContext(estimate, calc), history);
     return { text };
   } catch {
-    // API gagal / limit habis / dijalankan lewat npm run dev: pakai jawaban bawaan
     return ruleResult;
   }
 }

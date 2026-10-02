@@ -184,7 +184,6 @@ export function CostEstimateEditor({
           </div>
         </div>
 
-        {/* Tabs */}
         <div className="flex gap-2 mb-6 overflow-x-auto pb-1">
           {tabs.map((tab) => (
             <button
@@ -211,7 +210,6 @@ export function CostEstimateEditor({
           ))}
         </div>
 
-        {/* Startup costs tab */}
         {activeTab === 'startup' && (
           <CostTable
             title="Biaya Startup / Persiapan"
@@ -223,7 +221,6 @@ export function CostEstimateEditor({
           />
         )}
 
-        {/* Monthly fixed costs tab */}
         {activeTab === 'monthly' && (
           <CostTable
             title="Biaya Tetap Bulanan"
@@ -235,7 +232,6 @@ export function CostEstimateEditor({
           />
         )}
 
-        {/* Ingredients tab */}
         {activeTab === 'ingredients' && (
           <CostTable
             title="Biaya Bahan / Material per Unit"
@@ -248,7 +244,6 @@ export function CostEstimateEditor({
           />
         )}
 
-        {/* Price & target section */}
         <div className="grid md:grid-cols-2 gap-5 mt-8">
           <div className="p-2">
             <div className="flex items-center gap-2 mb-4">
@@ -304,7 +299,6 @@ export function CostEstimateEditor({
           </div>
         </div>
 
-        {/* Quick summary */}
         <div className="mt-6 bg-slate-900 rounded-2xl p-6 text-white">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div>
@@ -328,7 +322,6 @@ export function CostEstimateEditor({
           </div>
         </div>
 
-        {/* Continue */}
         <button
           onClick={onContinue}
           disabled={margin <= 0 || targetProfit <= 0}

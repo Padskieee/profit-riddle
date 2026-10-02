@@ -18,7 +18,6 @@ interface LandingPageProps {
 export function LandingPage({ onStart }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-white">
-      {/* Nav */}
       <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center">
           <div className="flex items-center gap-2.5">
@@ -32,7 +31,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </nav>
 
-      {/* Hero */}
       <section className="relative overflow-hidden bg-slate-900 text-white">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -72,7 +70,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
               </a>
             </div>
 
-            {/* Trust stats */}
             <div className="flex flex-wrap gap-x-10 gap-y-4 mt-14 pt-8 border-t border-white/10">
               <div>
                 <div className="text-2xl font-bold text-white">20+</div>
@@ -91,7 +88,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Problem section */}
       <section className="max-w-4xl mx-auto px-6 py-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-slate-900 mb-4">
@@ -125,7 +121,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Features */}
       <section className="bg-slate-50 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -184,7 +179,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      {/* How it works */}
       <section id="cara-kerja" className="max-w-4xl mx-auto px-6 py-20">
         <div className="text-center mb-14">
           <p className="text-sm font-semibold text-emerald-600 uppercase tracking-wider mb-3">
@@ -235,7 +229,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Example */}
       <section className="bg-slate-900 py-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -288,7 +281,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="max-w-3xl mx-auto px-6 py-20 text-center">
         <div className="flex items-center justify-center gap-2 mb-6">
           {['Gratis', 'Tanpa daftar', 'Langsung pakai'].map((tag, i) => (
@@ -317,7 +309,6 @@ export function LandingPage({ onStart }: LandingPageProps) {
         </button>
       </section>
 
-      {/* Footer */}
       <footer className="border-t border-slate-100 py-10">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">

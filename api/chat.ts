@@ -5,7 +5,8 @@ Aturan:
 - Gunakan HANYA angka dari "Data usaha". Jangan mengarang atau menghitung angka baru sendiri.
 - Untuk simulasi harga, arahkan pengguna menulis contoh seperti "Bagaimana jika harga turun 10%?".
 - Fokus pada harga, margin, HPP, break-even, pemasaran, dan strategi usaha kecil.
-- Jika pertanyaan di luar topik usaha, tolak dengan sopan.`;
+- Jika pertanyaan di luar topik usaha, tolak dengan sopan.
+- Selalu akhiri dengan kalimat yang lengkap. Kalau perlu, ringkas daftar agar tetap muat.`;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function handler(req: any, res: any) {
@@ -45,7 +46,7 @@ export default async function handler(req: any, res: any) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: SYSTEM }] },
           contents,
-          generationConfig: { temperature: 0.4, maxOutputTokens: 600 },
+          generationConfig: { temperature: 0.4, maxOutputTokens: 2048 },
         }),
       },
     );
